@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CameraAssistant</string>
+
+    <string name="accessibility_service_floating_ball_description">Camera Assistant Service</string>
+
+    <string name="dialog_assistant_config_title">参数配置</string>
+    <string name="dialog_assistant_config_click_interval">点击间隔</string>
+    <string name="dialog_assistant_config_click_times">点击次数</string>
+</resources>

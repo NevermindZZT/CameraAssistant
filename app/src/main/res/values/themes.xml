@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.CameraAssistant" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <item name="dialogCornerRadius">8dp</item>
+
+        <item name="md_corner_radius">8dp</item>
+        <item name="md_color_title">@color/textColorPrimary</item>
+        <item name="md_color_button_text">@color/colorAccent</item>
+        <item name="md_background_color">@color/colorPrimary</item>
+    </style>
+</resources>
