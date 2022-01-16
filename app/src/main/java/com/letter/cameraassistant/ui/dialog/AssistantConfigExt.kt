@@ -15,8 +15,9 @@ fun MaterialDialog.assistantConfig(
     customView(view = binding.root, noVerticalPadding = true)
     binding.positiveButton.setOnClickListener {
         val configData = AssistantConfigData(
-            textToInt(binding.clickIntervalInput.text.toString()),
-            textToInt(binding.clickTimesInput.text.toString())
+            textToInt(binding.photosIntervalInput.text.toString()),
+            textToInt(binding.photosTimeInput.text.toString()),
+            binding.intelligenceModeButton.isChecked
         )
 
         dismiss()

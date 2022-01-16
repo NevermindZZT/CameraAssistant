@@ -2,10 +2,11 @@ package com.letter.cameraassistant.service
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.GestureDescription
+import android.app.Instrumentation
 import android.content.Intent
 import android.graphics.Path
 import android.util.Log
-import android.view.LayoutInflater
+import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
@@ -26,8 +27,6 @@ class CoreService : AccessibilityService() {
         AssistantClickRepo()
     }
 
-    private var thread: Thread? = null
-
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return super.onStartCommand(intent, flags, startId)
     }
@@ -36,20 +35,21 @@ class CoreService : AccessibilityService() {
         super.onCreate()
         floatingBallView.show()
         floatingBallView.aimClickListener = View.OnClickListener {
-            if (thread != null && thread?.isAlive == true) {
-                thread?.interrupt()
-                thread = null
-            }
+            assistantClickRepo.stop()
             MaterialDialog(this).show {
                 assistantConfig { _, data ->
                     Log.d(TAG, "$data")
-                    if (data.clickTimes > 0) {
-                        thread = Thread {
-                            assistantClickRepo.loopClickTask(data.clickInterval, data.clickTimes) {
+                    if (data.photosTime > 0) {
+                        if (!data.intelligenceMode) {
+                            assistantClickRepo.loopClickTask(data.photosInterval, data.photosTime) {
+                                clickAim()
+//                                sendKey(KeyEvent.KEYCODE_CAMERA)
+                            }
+                        } else {
+                            AssistantClickRepo.IntelligenceMode.start(data.photosTime) {
                                 clickAim()
                             }
                         }
-                        thread?.start()
                     }
                 }
                 window?.setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY)
@@ -63,7 +63,7 @@ class CoreService : AccessibilityService() {
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
-
+        AssistantClickRepo.IntelligenceMode.call()
     }
 
     override fun onInterrupt() {
@@ -104,6 +104,12 @@ class CoreService : AccessibilityService() {
     private fun clickAim() {
         val position = floatingBallView.getAimPosition()
         clickPosition(position[0], position[1])
+        Log.d(TAG, "click at: ${position[0]}, ${position[1]}")
+    }
+
+    private fun sendKey(keyCode: Int) {
+        val instrumentation = Instrumentation()
+        instrumentation.sendKeyDownUpSync(keyCode)
     }
 
 }

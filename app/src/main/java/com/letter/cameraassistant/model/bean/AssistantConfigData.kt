@@ -1,6 +1,7 @@
 package com.letter.cameraassistant.model.bean
 
 data class AssistantConfigData(
-    var clickInterval: Int = 0,
-    var clickTimes: Int = 0
+    var photosInterval: Int = 0,
+    var photosTime: Int = 0,
+    var intelligenceMode: Boolean = false,
 )

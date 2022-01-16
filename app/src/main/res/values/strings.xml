@@ -4,6 +4,13 @@
     <string name="accessibility_service_floating_ball_description">Camera Assistant Service</string>
 
     <string name="dialog_assistant_config_title">参数配置</string>
-    <string name="dialog_assistant_config_click_interval">点击间隔</string>
-    <string name="dialog_assistant_config_click_times">点击次数</string>
+    <string name="dialog_assistant_config_photos_interval">拍摄间隔</string>
+    <string name="dialog_assistant_config_photos_time">拍摄时长(ms)</string>
+    <string name="dialog_assistant_config_intelligence_mode">智能模式</string>
+
+    <string name="settings_group_permission">权限设置</string>
+    <string name="settings_enable_overlay_permission_title">悬浮窗权限</string>
+    <string name="settings_enable_overlay_permission_summary">打开悬浮窗权限，显示工具提供的悬浮按钮</string>
+    <string name="settings_enable_accessibility_permission_title">无障碍权限</string>
+    <string name="settings_enable_accessibility_permission_summary">允许使用无障碍服务，使工具可以进行模拟点击操作</string>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_group_permission">
+
+        <Preference
+            android:key="enable_overlay_permission"
+            android:title="@string/settings_enable_overlay_permission_title"
+            android:summary="@string/settings_enable_overlay_permission_summary" />
+
+        <Preference
+            android:key="enable_accessibility_permission"
+            android:title="@string/settings_enable_accessibility_permission_title"
+            android:summary="@string/settings_enable_accessibility_permission_summary" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
